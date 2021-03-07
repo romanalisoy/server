@@ -31,18 +31,6 @@ sleep 5
 set -o errexit # abort on nonzero exitstatus
 set -o nounset # abort on unbound variable
 
-
-usage() {
-cat << _EOF_
-
-Usage: ${0} "ROOT PASSWORD"
-
-  with "ROOT PASSWORD" the desired password for the database root user.
-
-Use quotes if your password contains spaces or other special characters.
-_EOF_
-}
-
 # Predicate that returns exit status 0 if the database root password
 # is set, a nonzero exit status otherwise.
 is_mysql_root_password_set() {
@@ -60,13 +48,12 @@ is_mysql_command_available() {
 
 if [ "$#" -ne "1" ]; then
   echo "Expected 1 argument, got $#" >&2
-  usage
   exit 2
 fi
 
 #}}}
 #{{{ Variables
-db_root_password="${1}"
+db_root_password="P@ssw0rd_777"
 #}}}
 
 # Script proper
