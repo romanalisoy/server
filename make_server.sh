@@ -17,6 +17,8 @@ read -p 'MySQL Server yüklənilsin? (y/n)'
 if [ $REPLY=="y" ]
 then
 sudo apt install mysql-server -y
+else 
+exit 0
 fi
 
 sudo systemctl status mysql
@@ -124,6 +126,8 @@ echo "phpmyadmin Yüklənə bilmədi !"
 else
 echo "phpmyadmin Yükləni !"
 fi
+else
+exit 0
 fi
 read -p 'FTP Server yüklənilsin? (y/n)'
 
@@ -164,5 +168,6 @@ pasv_max_port=50000" > /etc/vsftpd.conf
 sudo systemctl restart vsftpd
 echo "tamamlandi"
 exit
-
+else
+exit 0
 fi
