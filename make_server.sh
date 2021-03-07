@@ -15,12 +15,12 @@ then
 read -p 'Server tipini seçin (1-MySQL, 2-MariaDB)'
 if [ $REPLY=="1" ]
 then
-sudo apt install mysql-server
+sudo apt install mysql-server -y
 fi
 
 if [ $REPLY=="2" ]
 then
-sudo apt install mariadb-server
+sudo apt install mariadb-server -y
 fi
 sudo systemctl status mysql
 
