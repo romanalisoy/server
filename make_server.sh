@@ -1,26 +1,24 @@
 #!/bin/bash
-echo "Serverin yaradılması bə lazımı programlarən yüklənilməsi başladılır..."
+echo "Serverin yaradılması üçün lazımı programların yüklənilməsi başladılır..."
 sleep 5
-echo "Sistem gərəksinimləri yüklənir..."
+
+echo "Sistem yeniləmələri yüklənir..."
+sleep 5
+
 sudo apt update -y
 sudo apt upgrade -y
-sudo apt install apache2 wget unzip zip php php-zip libonig5 libzip5 php-json php-mbstring php-mysql -y
+
+echo "Sistem gərəksinimləri yüklənir..."
 sleep 5
+
+sudo apt install apache2 wget unzip zip php php-zip libonig5 libzip5 php-json php-mbstring php-mysql -y
 
 read -p 'MySQL Server yüklənilsin? (y/n)'
 if [ $REPLY=="y" ]
 then
-
-read -p 'Server tipini seçin (1-MySQL, 2-MariaDB)'
-if [ $REPLY=="1" ]
-then
 sudo apt install mysql-server -y
 fi
 
-if [ $REPLY=="2" ]
-then
-sudo apt install mariadb-server -y
-fi
 sudo systemctl status mysql
 
 echo "MySQL konfiqrasiya edilir..."
