@@ -86,7 +86,7 @@ UPDATE mysql.user SET Password=PASSWORD('${db_root_password}') WHERE User='root'
 DELETE FROM mysql.user WHERE User='';
 DROP DATABASE IF EXISTS test;
 DELETE FROM mysql.db WHERE Db='test' OR Db='test\\_%';
-  
+   
 CREATE DATABASE main
 CREATE USER 'eldar'@'%' IDENTIFIED by 'P@ssw0rd_777';
  
