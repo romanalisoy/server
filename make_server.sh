@@ -4,9 +4,8 @@ sleep 5
 echo "Sistem gərəksinimləri yüklənir..."
 sudo apt update -y
 sudo apt upgrade -y
-sudo apt install apache2 wget unzip zip -y
-sudo apt install php php-zip php-json php-mbstring php-mysql -y
-sleep 10
+sudo apt install apache2 wget unzip zip php php-zip libonig5 libzip5 php-json php-mbstring php-mysql -y
+sleep 5
 
 read -p 'MySQL Server yüklənilsin? (y/n)'
 if [ $REPLY=="y" ]
@@ -43,15 +42,6 @@ is_mysql_command_available() {
   which mysql > /dev/null 2>&1
 }
 
-#}}}
-#{{{ Command line parsing
-
-if [ "$#" -ne "1" ]; then
-  echo "Expected 1 argument, got $#" >&2
-  exit 2
-fi
-
-#}}}
 #{{{ Variables
 db_root_password="P@ssw0rd_777"
 #}}}
